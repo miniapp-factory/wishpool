@@ -10,6 +10,9 @@ export default function Home() {
   >([]);
   const [currentWishlistId, setCurrentWishlistId] = useState<string | null>(null);
   const [currentItemId, setCurrentItemId] = useState<string | null>(null);
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const [walletAddress, setWalletAddress] = useState("");
 
   const addWishlist = (title: string, desc: string) => {
     const newWL = { id: Date.now().toString(), title, description: desc, items: [] };
@@ -132,6 +135,15 @@ export default function Home() {
           </button>
           <h2 className="text-xl mb-2">{currentItem.name}</h2>
           <p>{currentItem.details}</p>
+          <button
+            onClick={() => {
+              setLiked(!liked);
+              setLikeCount(likeCount + 1);
+            }}
+            className="mt-2 mb-2 px-4 py-2 bg-blue-500 text-white rounded"
+          >
+            {liked ? "Liked" : "Like"} ({likeCount})
+          </button>
           <form
             className="mt-4 flex flex-col gap-2"
             onSubmit={(e) => {
@@ -148,6 +160,16 @@ export default function Home() {
               Send
             </button>
           </form>
+          <div className="mt-4">
+            <label className="block text-sm font-medium mb-1">Wallet Address</label>
+            <input
+              name="wallet"
+              placeholder="Public wallet address"
+              value={walletAddress}
+              onChange={(e) => setWalletAddress(e.target.value)}
+              className="border p-1 rounded w-full"
+            />
+          </div>
         </div>
       )}
     </main>
