@@ -62,6 +62,28 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <div className="mt-4">
+            <p className="text-sm text-muted-foreground mb-2">
+              Show support on someone's wishlist by contributing funds through their wallet address.
+            </p>
+            <label className="block text-sm font-medium mb-1">Wallet Address</label>
+            <div className="flex">
+              <input
+                name="wallet"
+                placeholder="Public wallet address"
+                value={walletAddress}
+                onChange={(e) => setWalletAddress(e.target.value)}
+                className="border p-1 rounded w-full"
+              />
+              <button
+                type="button"
+                onClick={() => navigator.clipboard.writeText(walletAddress)}
+                className="ml-2 px-2 py-1 bg-gray-200 rounded"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
           <form
             className="mt-4 flex flex-col gap-2"
             onSubmit={(e) => {
@@ -160,16 +182,6 @@ export default function Home() {
               Send
             </button>
           </form>
-          <div className="mt-4">
-            <label className="block text-sm font-medium mb-1">Wallet Address</label>
-            <input
-              name="wallet"
-              placeholder="Public wallet address"
-              value={walletAddress}
-              onChange={(e) => setWalletAddress(e.target.value)}
-              className="border p-1 rounded w-full"
-            />
-          </div>
         </div>
       )}
     </main>
