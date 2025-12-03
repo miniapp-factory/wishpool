@@ -20,3 +20,9 @@
 
 # 2025-12-03 13:12:54.773523
 +Add a like button for the Item view, and a field to input the public address of your smart wallet.
+
+# 2025-12-03 13:23:06.643848
++Remove the Wallet Address field on Item View. Add it before creating a new Item so that the public can send support or funds through your wallet address. It has clickable copy button. Put a label or description saying to show support on someones wishlist by contributing funds through their wallet address.
+
+# 2025-12-03 13:23:06.644528
++Remove the Wallet Address field on Item View. Add it before creating a new Item so that the public can send support or funds through your wallet address. It has clickable copy button. Put a label or description saying to show support on someones wishlist by contributing funds through their wallet address.
